@@ -1,0 +1,33 @@
+# --- Secrets (NEVER UPLOAD THESE) ---
+.env
+.env.local
+config.py
+secrets.json
+*.key
+
+# --- Python & Virtual Environments ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# --- IDE Settings ---
+.vscode/
+.idea/
+
+# --- Video & Media Outputs (Too large for GitHub) ---
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.png
+*.jpg
+# Keep this if you want to save specific examples, otherwise ignore output folders:
+output/
+generated_videos/
+temp/
+
+# --- Operating System Files ---
+.DS_Store
+Thumbs.db
