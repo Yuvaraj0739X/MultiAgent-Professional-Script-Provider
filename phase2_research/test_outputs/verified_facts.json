@@ -1,0 +1,200 @@
+[
+  {
+    "fact_id": "1",
+    "fact_text": "The House of Bonaparte was founded in 1804 by Napoleon I.",
+    "fact_type": "DATE",
+    "supporting_sources": [
+      "House of Bonaparte",
+      "Napoleon I"
+    ],
+    "verification_status": "confirmed",
+    "notes": null
+  },
+  {
+    "fact_id": "2",
+    "fact_text": "Napoleon I transformed the French First Republic into the First French Empire in 1804.",
+    "fact_type": "EVENT",
+    "supporting_sources": [
+      "House of Bonaparte",
+      "Napoleon I"
+    ],
+    "verification_status": "confirmed",
+    "notes": null
+  },
+  {
+    "fact_id": "3",
+    "fact_text": "Napoleon I staged a coup d'\u00e9tat on 9 November 1799, known as 18 Brumaire.",
+    "fact_type": "DATE",
+    "supporting_sources": [
+      "House of Bonaparte",
+      "Napoleon I"
+    ],
+    "verification_status": "confirmed",
+    "notes": null
+  },
+  {
+    "fact_id": "5",
+    "fact_text": "Napoleon I was defeated at the Battle of Waterloo on 18 June 1815.",
+    "fact_type": "EVENT",
+    "supporting_sources": [
+      "House of Bonaparte",
+      "Battle of Waterloo"
+    ],
+    "verification_status": "confirmed",
+    "notes": null
+  },
+  {
+    "fact_id": "6",
+    "fact_text": "The Congress of Vienna restored the Bourbon dynasty after Napoleon's defeat.",
+    "fact_type": "EVENT",
+    "supporting_sources": [
+      "House of Bonaparte",
+      "Hundred Days"
+    ],
+    "verification_status": "confirmed",
+    "notes": null
+  },
+  {
+    "fact_id": "7",
+    "fact_text": "Caroline Bonaparte was born on 25 March 1782 and died on 18 May 1839.",
+    "fact_type": "DATE",
+    "supporting_sources": [
+      "Caroline Bonaparte",
+      "Napoleon I"
+    ],
+    "verification_status": "confirmed",
+    "notes": null
+  },
+  {
+    "fact_id": "8",
+    "fact_text": "Caroline Bonaparte was the younger sister of Napoleon I of France.",
+    "fact_type": "RELATIONSHIP",
+    "supporting_sources": [
+      "Caroline Bonaparte",
+      "Napoleon I"
+    ],
+    "verification_status": "confirmed",
+    "notes": null
+  },
+  {
+    "fact_id": "10",
+    "fact_text": "Napoleon II was born on 20 March 1811 and died on 22 July 1832.",
+    "fact_type": "DATE",
+    "supporting_sources": [
+      "Napoleon II",
+      "House of Bonaparte"
+    ],
+    "verification_status": "confirmed",
+    "notes": null
+  },
+  {
+    "fact_id": "11",
+    "fact_text": "Napoleon II was the son of Emperor Napoleon I and Empress Marie Louise.",
+    "fact_type": "RELATIONSHIP",
+    "supporting_sources": [
+      "Napoleon II",
+      "House of Bonaparte"
+    ],
+    "verification_status": "confirmed",
+    "notes": null
+  },
+  {
+    "fact_id": "12",
+    "fact_text": "The Battle of Waterloo was fought near Waterloo, Belgium, on 18 June 1815.",
+    "fact_type": "LOCATION",
+    "supporting_sources": [
+      "Battle of Waterloo",
+      "House of Bonaparte"
+    ],
+    "verification_status": "confirmed",
+    "notes": null
+  },
+  {
+    "fact_id": "13",
+    "fact_text": "The French Imperial Army was commanded by Napoleon I during the Battle of Waterloo.",
+    "fact_type": "RELATIONSHIP",
+    "supporting_sources": [
+      "Battle of Waterloo",
+      "House of Bonaparte"
+    ],
+    "verification_status": "confirmed",
+    "notes": null
+  },
+  {
+    "fact_id": "14",
+    "fact_text": "The Duke of Wellington commanded the British-led forces at the Battle of Waterloo.",
+    "fact_type": "RELATIONSHIP",
+    "supporting_sources": [
+      "Battle of Waterloo",
+      "House of Bonaparte"
+    ],
+    "verification_status": "confirmed",
+    "notes": null
+  },
+  {
+    "fact_id": "15",
+    "fact_text": "The Battle of Ligny was fought on 16 June 1815 near Ligny, Belgium.",
+    "fact_type": "DATE",
+    "supporting_sources": [
+      "Battle of Ligny",
+      "House of Bonaparte"
+    ],
+    "verification_status": "confirmed",
+    "notes": null
+  },
+  {
+    "fact_id": "16",
+    "fact_text": "The Battle of Quatre Bras was fought on 16 June 1815 near Quatre Bras, Belgium.",
+    "fact_type": "DATE",
+    "supporting_sources": [
+      "Battle of Quatre Bras",
+      "House of Bonaparte"
+    ],
+    "verification_status": "confirmed",
+    "notes": null
+  },
+  {
+    "fact_id": "17",
+    "fact_text": "The Hundred Days began on 20 March 1815 with Napoleon's return from exile.",
+    "fact_type": "DATE",
+    "supporting_sources": [
+      "Hundred Days",
+      "House of Bonaparte"
+    ],
+    "verification_status": "confirmed",
+    "notes": null
+  },
+  {
+    "fact_id": "18",
+    "fact_text": "The Hundred Days ended on 8 July 1815 with the restoration of King Louis XVIII.",
+    "fact_type": "DATE",
+    "supporting_sources": [
+      "Hundred Days",
+      "House of Bonaparte"
+    ],
+    "verification_status": "confirmed",
+    "notes": null
+  },
+  {
+    "fact_id": "19",
+    "fact_text": "The Seventh Coalition was formed to oppose Napoleon's return to power in March 1815.",
+    "fact_type": "EVENT",
+    "supporting_sources": [
+      "Hundred Days",
+      "House of Bonaparte"
+    ],
+    "verification_status": "confirmed",
+    "notes": null
+  },
+  {
+    "fact_id": "20",
+    "fact_text": "Napoleon was declared an outlaw by the Congress of Vienna on 13 March 1815.",
+    "fact_type": "EVENT",
+    "supporting_sources": [
+      "Hundred Days",
+      "House of Bonaparte"
+    ],
+    "verification_status": "confirmed",
+    "notes": null
+  }
+]

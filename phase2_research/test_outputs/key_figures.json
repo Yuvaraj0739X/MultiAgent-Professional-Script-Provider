@@ -1,0 +1,83 @@
+[
+  {
+    "name": "Napoleon I",
+    "role": "Emperor of the French, military leader",
+    "verified_details": {
+      "detail_0": "Founded the House of Bonaparte in 1804",
+      "detail_1": "Staged the coup of 18 Brumaire in 1799",
+      "detail_2": "Transformed the French First Republic into the First French Empire in 1804",
+      "detail_3": "Defeated at the Battle of Waterloo on 18 June 1815"
+    },
+    "relevant_dates": [
+      "1799-11-09",
+      "1804",
+      "1815-06-18"
+    ],
+    "sources": [
+      "House of Bonaparte",
+      "Napoleon I"
+    ]
+  },
+  {
+    "name": "Caroline Bonaparte",
+    "role": "Sister of Napoleon I",
+    "verified_details": {
+      "detail_0": "Born on 25 March 1782",
+      "detail_1": "Died on 18 May 1839",
+      "detail_2": "Younger sister of Napoleon I"
+    },
+    "relevant_dates": [
+      "1782-03-25"
+    ],
+    "sources": [
+      "Caroline Bonaparte",
+      "Napoleon I"
+    ]
+  },
+  {
+    "name": "Napoleon II",
+    "role": "Son of Napoleon I",
+    "verified_details": {
+      "detail_0": "Born on 20 March 1811",
+      "detail_1": "Died on 22 July 1832",
+      "detail_2": "Son of Emperor Napoleon I and Empress Marie Louise"
+    },
+    "relevant_dates": [
+      "1811-03-20"
+    ],
+    "sources": [
+      "Napoleon II",
+      "House of Bonaparte"
+    ]
+  },
+  {
+    "name": "Duke of Wellington",
+    "role": "Commander of British-led forces",
+    "verified_details": {
+      "detail_0": "Commanded forces at the Battle of Waterloo"
+    },
+    "relevant_dates": [
+      "1815-06-18"
+    ],
+    "sources": [
+      "Battle of Waterloo",
+      "House of Bonaparte"
+    ]
+  },
+  {
+    "name": "Marshal Bl\u00fccher",
+    "role": "Prussian military leader",
+    "verified_details": {
+      "detail_0": "Participated in the Battle of Ligny",
+      "detail_1": "Participated in the Battle of Waterloo"
+    },
+    "relevant_dates": [
+      "1815-06-16",
+      "1815-06-18"
+    ],
+    "sources": [
+      "Battle of Ligny",
+      "Battle of Waterloo"
+    ]
+  }
+]

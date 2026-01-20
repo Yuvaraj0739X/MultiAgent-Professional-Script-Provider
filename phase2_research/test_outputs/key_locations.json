@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Waterloo, Belgium",
+    "location_type": "Battlefield",
+    "verified_details": {
+      "detail_0": "Site of the Battle of Waterloo on 18 June 1815"
+    },
+    "significance": "The location of Napoleon's final defeat, marking the end of his rule and the Napoleonic Wars.",
+    "sources": [
+      "Battle of Waterloo",
+      "House of Bonaparte"
+    ]
+  },
+  {
+    "name": "Ligny, Belgium",
+    "location_type": "Battlefield",
+    "verified_details": {
+      "detail_0": "Site of the Battle of Ligny on 16 June 1815"
+    },
+    "significance": "The site of Napoleon's last victory, setting the stage for the Battle of Waterloo.",
+    "sources": [
+      "Battle of Ligny",
+      "House of Bonaparte"
+    ]
+  },
+  {
+    "name": "Quatre Bras, Belgium",
+    "location_type": "Battlefield",
+    "verified_details": {
+      "detail_0": "Site of the Battle of Quatre Bras on 16 June 1815"
+    },
+    "significance": "A key battle that prevented French forces from consolidating, affecting the outcome at Waterloo.",
+    "sources": [
+      "Battle of Quatre Bras",
+      "House of Bonaparte"
+    ]
+  }
+]

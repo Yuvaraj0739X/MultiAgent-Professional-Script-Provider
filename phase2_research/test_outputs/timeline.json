@@ -1,0 +1,178 @@
+[
+  {
+    "date": "1782-03-25",
+    "event_title": "Birth of Caroline Bonaparte",
+    "event_description": "Caroline Bonaparte, the younger sister of Napoleon I, was born on this day. She would later play a role in the Napoleonic era as a member of the Bonaparte family.",
+    "participants": [
+      "Caroline Bonaparte"
+    ],
+    "location": null,
+    "significance": "Caroline's birth adds depth to the Bonaparte family dynamics, relevant for understanding Napoleon's personal life.",
+    "sources": [
+      "Caroline Bonaparte",
+      "Napoleon I"
+    ]
+  },
+  {
+    "date": "1799-11-09",
+    "event_title": "Coup of 18 Brumaire",
+    "event_description": "Napoleon Bonaparte staged a coup d'\u00e9tat, overthrowing the French Directory and establishing the Consulate. This marked the rise of Napoleon's political power in France.",
+    "participants": [
+      "Napoleon I"
+    ],
+    "location": "France",
+    "significance": "This event set the stage for Napoleon's eventual rise to Emperor, crucial for understanding his later military campaigns.",
+    "sources": [
+      "House of Bonaparte",
+      "Napoleon I"
+    ]
+  },
+  {
+    "date": "1804",
+    "event_title": "Foundation of the House of Bonaparte",
+    "event_description": "Napoleon I founded the House of Bonaparte, transforming his political power into a dynastic rule. This solidified his family's influence in Europe.",
+    "participants": [
+      "Napoleon I"
+    ],
+    "location": "France",
+    "significance": "The establishment of the Bonaparte dynasty is central to the narrative of Napoleon's ambition and legacy.",
+    "sources": [
+      "House of Bonaparte",
+      "Napoleon I"
+    ]
+  },
+  {
+    "date": "1804",
+    "event_title": "Transformation into the First French Empire",
+    "event_description": "Napoleon I transformed the French First Republic into the First French Empire, declaring himself Emperor. This marked a significant shift in French governance.",
+    "participants": [
+      "Napoleon I"
+    ],
+    "location": "France",
+    "significance": "This transformation highlights Napoleon's ambition and sets the stage for his imperial campaigns.",
+    "sources": [
+      "House of Bonaparte",
+      "Napoleon I"
+    ]
+  },
+  {
+    "date": "1811-03-20",
+    "event_title": "Birth of Napoleon II",
+    "event_description": "Napoleon II was born to Emperor Napoleon I and Empress Marie Louise. He was the heir to the French Empire.",
+    "participants": [
+      "Napoleon II",
+      "Napoleon I",
+      "Marie Louise"
+    ],
+    "location": null,
+    "significance": "Napoleon II's birth represents the continuation of the Bonaparte dynasty, adding personal stakes to Napoleon's political and military actions.",
+    "sources": [
+      "Napoleon II",
+      "House of Bonaparte"
+    ]
+  },
+  {
+    "date": "1815-03-13",
+    "event_title": "Napoleon Declared an Outlaw",
+    "event_description": "The Congress of Vienna declared Napoleon an outlaw following his escape from Elba and return to France. This declaration set the stage for the Hundred Days campaign.",
+    "participants": [
+      "Napoleon I"
+    ],
+    "location": "Vienna, Austria",
+    "significance": "This event underscores the international opposition to Napoleon's return, setting the stakes for the Hundred Days.",
+    "sources": [
+      "Hundred Days",
+      "House of Bonaparte"
+    ]
+  },
+  {
+    "date": "1815-03-20",
+    "event_title": "Start of the Hundred Days",
+    "event_description": "Napoleon returned from exile on Elba, marking the beginning of the Hundred Days. This period saw his brief return to power in France.",
+    "participants": [
+      "Napoleon I"
+    ],
+    "location": "France",
+    "significance": "The Hundred Days is the final chapter of Napoleon's rule, leading directly to the events of the Battle of Waterloo.",
+    "sources": [
+      "Hundred Days",
+      "House of Bonaparte"
+    ]
+  },
+  {
+    "date": "1815-03",
+    "event_title": "Formation of the Seventh Coalition",
+    "event_description": "In response to Napoleon's return, the Seventh Coalition was formed by major European powers to oppose him. This coalition included Britain, Prussia, and others.",
+    "participants": [
+      "Napoleon I",
+      "Duke of Wellington",
+      "Marshal Bl\u00fccher"
+    ],
+    "location": "Europe",
+    "significance": "The coalition's formation set the stage for the military confrontations that culminated in the Battle of Waterloo.",
+    "sources": [
+      "Hundred Days",
+      "House of Bonaparte"
+    ]
+  },
+  {
+    "date": "1815-06-16",
+    "event_title": "Battle of Ligny",
+    "event_description": "Napoleon achieved a tactical victory against the Prussian army at Ligny, forcing them to retreat. This battle was part of his strategy to divide and conquer the coalition forces.",
+    "participants": [
+      "Napoleon I",
+      "Marshal Bl\u00fccher"
+    ],
+    "location": "Ligny, Belgium",
+    "significance": "The battle demonstrated Napoleon's tactical skill but also set up the conditions for the subsequent Battle of Waterloo.",
+    "sources": [
+      "Battle of Ligny",
+      "House of Bonaparte"
+    ]
+  },
+  {
+    "date": "1815-06-16",
+    "event_title": "Battle of Quatre Bras",
+    "event_description": "The Duke of Wellington's forces engaged the French army at Quatre Bras, preventing them from joining Napoleon at Ligny. The battle ended inconclusively but delayed French advances.",
+    "participants": [
+      "Duke of Wellington"
+    ],
+    "location": "Quatre Bras, Belgium",
+    "significance": "This battle was crucial in preventing Napoleon from consolidating his forces, contributing to the eventual outcome at Waterloo.",
+    "sources": [
+      "Battle of Quatre Bras",
+      "House of Bonaparte"
+    ]
+  },
+  {
+    "date": "1815-06-18",
+    "event_title": "Battle of Waterloo",
+    "event_description": "Napoleon's forces were decisively defeated by the Seventh Coalition led by the Duke of Wellington and Marshal Bl\u00fccher. This battle marked the end of the Napoleonic Wars.",
+    "participants": [
+      "Napoleon I",
+      "Duke of Wellington",
+      "Marshal Bl\u00fccher"
+    ],
+    "location": "Waterloo, Belgium",
+    "significance": "The Battle of Waterloo was the climactic end to Napoleon's rule, dramatically altering European history.",
+    "sources": [
+      "Battle of Waterloo",
+      "House of Bonaparte"
+    ]
+  },
+  {
+    "date": "1815-07-08",
+    "event_title": "End of the Hundred Days",
+    "event_description": "The Hundred Days ended with the restoration of King Louis XVIII to the French throne, following Napoleon's defeat and abdication.",
+    "participants": [
+      "Napoleon I",
+      "King Louis XVIII"
+    ],
+    "location": "France",
+    "significance": "This event marked the definitive end of Napoleon's political power and the restoration of the Bourbon monarchy.",
+    "sources": [
+      "Hundred Days",
+      "House of Bonaparte"
+    ]
+  }
+]

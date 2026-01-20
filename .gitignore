@@ -1,7 +1,7 @@
 # --- Secrets (NEVER UPLOAD THESE) ---
 .env
 .env.local
-config.py
+config
 secrets.json
 *.key
 
@@ -24,9 +24,10 @@ env/
 *.png
 *.jpg
 # Keep this if you want to save specific examples, otherwise ignore output folders:
-output/
+outputs/
 generated_videos/
 temp/
+checkpoints/
 
 # --- Operating System Files ---
 .DS_Store
