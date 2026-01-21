@@ -153,6 +153,11 @@ def parse_fountain_screenplay(screenplay_text: str) -> Dict[str, Any]:
     """
     Parse Fountain format screenplay into structured data.
     
+    FIXES:
+    - Removes markdown ``` artifacts from LLM generation
+    - Deduplicates consecutive identical scene headings
+    - Handles malformed Fountain from LLM output
+    
     Returns:
         Dict with scenes, dialogue, action lines, etc.
     """
@@ -168,6 +173,7 @@ def parse_fountain_screenplay(screenplay_text: str) -> Dict[str, Any]:
     current_scene = None
     current_character = None
     in_dialogue = False
+    last_scene_heading = None  # ← NEW: Track to prevent duplicates
     
     for i, line in enumerate(lines):
         stripped = line.strip()
@@ -178,6 +184,10 @@ def parse_fountain_screenplay(screenplay_text: str) -> Dict[str, Any]:
             current_character = None
             continue
         
+        # ← NEW: SKIP MARKDOWN ARTIFACTS
+        if stripped == '```' or stripped.startswith('```'):
+            continue
+        
         # Title page (first non-empty line if not scene heading)
         if not parsed['title'] and not re.match(SCENE_HEADING_PATTERN, stripped):
             parsed['title'] = stripped
@@ -186,8 +196,15 @@ def parse_fountain_screenplay(screenplay_text: str) -> Dict[str, Any]:
         # Scene heading
         scene_match = re.match(SCENE_HEADING_PATTERN, stripped)
         if scene_match:
+            # ← NEW: DEDUPLICATE consecutive same headings
+            if stripped.upper() == last_scene_heading:
+                continue  # Skip this duplicate
+            
+            # New scene detected
             if current_scene:
                 parsed['scenes'].append(current_scene)
+            
+            last_scene_heading = stripped.upper()  # ← NEW: Remember this heading
             
             current_scene = {
                 'heading': stripped,
@@ -284,8 +301,10 @@ def extract_scene_text_by_heading(screenplay_text: str, scene_heading: str) -> s
     """
     Extract text for a specific scene by matching the scene heading.
     
-    This is more reliable than scene number when there's a mismatch between
-    scene breakdown count and actual screenplay scene count.
+    Uses ultra-flexible matching to handle:
+    - Exact heading matches
+    - Partial matches (ignoring time)
+    - Location-only matches (ignoring INT/EXT and time)
     
     Args:
         screenplay_text: Full screenplay text
@@ -331,8 +350,65 @@ def extract_scene_text_by_heading(screenplay_text: str, scene_heading: str) -> s
             
             return '\n'.join(text_parts)
     
+    # ← NEW: ULTRA FLEXIBLE MATCHING (for scenes with time variations)
+    # Extract just the location name, ignoring INT/EXT and time
+    # e.g., "EXT. FRENCH COUNTRYSIDE - DAY" → "FRENCH COUNTRYSIDE"
+    
+    target_location = target_heading
+    # Remove INT./EXT. prefix
+    if target_location.startswith('INT.'):
+        target_location = target_location[4:].strip()
+    elif target_location.startswith('EXT.'):
+        target_location = target_location[4:].strip()
+    elif target_location.startswith('INT/EXT.'):
+        target_location = target_location[8:].strip()
+    
+    # Remove time of day (everything after last hyphen)
+    if ' - ' in target_location:
+        target_location = target_location.rsplit(' - ', 1)[0].strip()
+    
+    # Try to find ANY scene with this location (ignore time differences)
+    best_match = None
+    best_match_length = 0
+    
+    for scene in parsed['scenes']:
+        scene_head = scene['heading'].strip().upper()
+        scene_location = scene_head
+        
+        # Remove INT./EXT. prefix
+        if scene_location.startswith('INT.'):
+            scene_location = scene_location[4:].strip()
+        elif scene_location.startswith('EXT.'):
+            scene_location = scene_location[4:].strip()
+        elif scene_location.startswith('INT/EXT.'):
+            scene_location = scene_location[8:].strip()
+        
+        # Remove time of day
+        if ' - ' in scene_location:
+            scene_location = scene_location.rsplit(' - ', 1)[0].strip()
+        
+        # Check if locations match
+        if target_location == scene_location:
+            # Reconstruct scene text
+            text_parts = [scene['heading'], '']
+            text_parts.extend(scene['action_lines'])
+            
+            for dialogue in scene['dialogue']:
+                text_parts.append(f"\n{dialogue['character']}")
+                text_parts.append(dialogue['line'])
+            
+            scene_text = '\n'.join(text_parts)
+            
+            # Keep track of longest match (in case multiple instances)
+            if len(scene_text) > best_match_length:
+                best_match = scene_text
+                best_match_length = len(scene_text)
+    
+    # Return best match if found
+    if best_match:
+        return best_match
+    
     return ""
-
 
 # ===== CHARACTER EXTRACTION HELPERS =====
 

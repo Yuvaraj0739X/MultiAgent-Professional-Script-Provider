@@ -2,6 +2,8 @@
 Configuration for Multi-Agent Screenplay Generator
 Model and temperature settings for all phases.
 """
+from dotenv import load_dotenv
+load_dotenv(override=True)
 
 # Model selection per phase and node
 MODELS = {
@@ -24,11 +26,11 @@ MODELS = {
         "validation": "gpt-4o-mini",              # Basic for validation
     },
     "phase4": {
-        "character_extraction": "gpt-4o-mini",         # Premium for detailed extraction
+        "character_extraction": "gpt-4o",         # Premium for detailed extraction
         "voice_extraction": "gpt-4o-mini",             # Premium for voice analysis
-        "environment_extraction": "gpt-4o-mini",       # Premium for detailed extraction
-        "scene_analysis": "gpt-4o-mini",               # Premium for complex analysis
-        "storyboard_planning": "gpt-4o-mini",          # Premium for creative planning
+        "environment_extraction": "gpt-4o",       # Premium for detailed extraction
+        "scene_analysis": "gpt-4o",               # Premium for complex analysis
+        "storyboard_planning": "gpt-4o",          # Premium for creative planning
     },
 }
 
