@@ -16,58 +16,31 @@ SCENE_HEADING_PATTERN = r'^(INT\.|EXT\.|INT\./EXT\.)\s+(.+?)\s+-\s+(DAY|NIGHT|DA
 CHARACTER_PATTERN = r'^([A-Z][A-Z\s]+)$'
 DIALOGUE_PATTERN = r'^\s{20,}'
 
-# ===== CHARACTER NAME FILTERING =====
-
-# Blacklist of non-character screenplay markers
 CHARACTER_NAME_BLACKLIST = {
     # Transitions
-    'CUT TO',
-    'FADE IN',
-    'FADE OUT',
-    'FADE TO BLACK',
-    'DISSOLVE TO',
-    'SMASH CUT TO',
-    'MATCH CUT TO',
-    'JUMP CUT TO',
-    'WIPE TO',
-    'IRIS IN',
-    'IRIS OUT',
+    'CUT TO', 'FADE IN', 'FADE OUT', 'FADE TO', 'DISSOLVE TO',
+    'SMASH CUT TO', 'MATCH CUT TO', 'JUMP CUT TO', 'WIPE TO',
     
-    # Scene markers
-    'END SCENE',
-    'BEGIN SCENE',
-    'FLASHBACK',
-    'FLASH FORWARD',
-    'MONTAGE',
-    'END MONTAGE',
-    'INTERCUT',
-    'END INTERCUT',
+    # Scene markers (invalid Fountain but LLMs sometimes add)
+    'END SCENE', 'END OF SCENE', 'SCENE END', 'SCENE ENDS',
+    
+    # Continuation markers
+    'CONTINUED', "CONT'D", 'CONTINUING', 'CONTINUOUS',
     
     # Time markers
-    'LATER',
-    'MEANWHILE',
-    'MOMENTS LATER',
-    'SAME TIME',
-    'CONTINUOUS',
-    'THE NEXT DAY',
-    'THE NEXT MORNING',
+    'LATER', 'MEANWHILE', 'MOMENTS LATER', 'SAME TIME',
+    'SIMULTANEOUSLY', 'EARLIER', 'PREVIOUSLY',
     
-    # Technical
-    'TITLE',
-    'TITLE CARD',
-    'SUPER',
-    'INSERT',
-    'BACK TO SCENE',
-    'CONTINUED',
-    'CONT\'D',
-    'MORE',
-    'THE END',
+    # Other screenplay markers
+    'MONTAGE', 'FLASHBACK', 'FLASH FORWARD', 'TITLE CARD',
+    'SUPER', 'INSERT', 'BACK TO', 'THE END', 'CREDITS',
+    'OPENING CREDITS', 'END CREDITS', 'INTERCUT',
     
-    # Common artifacts
-    'END',
-    'BEGIN',
-    'START',
-    'STOP'
+    # Code/markdown artifacts
+    'END', 'BEGIN', 'START', 'STOP',
+    
+    # Time of day (these appear in scene headings, not dialogue)
+    'DAY', 'NIGHT', 'DAWN', 'DUSK', 'MORNING', 'EVENING', 'AFTERNOON',
 }
 
 
@@ -147,7 +120,6 @@ def filter_character_names(character_names: list) -> dict:
         'valid': sorted(list(set(valid))),
         'filtered': sorted(list(set(filtered)))
     }
-
 
 def parse_fountain_screenplay(screenplay_text: str) -> Dict[str, Any]:
     """

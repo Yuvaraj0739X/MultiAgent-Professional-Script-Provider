@@ -64,26 +64,46 @@ def character_extraction_node(state: Phase4State) -> Dict:
     print(f"✓ Parsed screenplay: {len(parsed_screenplay['scenes'])} scenes found")
     
     # Extract character names from dialogue
-    character_names = extract_character_names_from_dialogue(parsed_screenplay)
-    print(f"✓ Found {len(character_names)} unique characters in dialogue:")
+    # Extract character names from dialogue
+    raw_character_names = extract_character_names_from_dialogue(parsed_screenplay)
+    print(f"✓ Found {len(raw_character_names)} dialogue entries")
+
+    # ===== FILTER CHARACTER NAMES =====
+    from ..utils import filter_character_names
+
+    filtered_result = filter_character_names(raw_character_names)
+    character_names = filtered_result['valid']
+    filtered_names = filtered_result['filtered']
+
+    # Log filtered entries
+    if filtered_names:
+        print(f"\n⚠️  Filtered out {len(filtered_names)} non-character entries:")
+        for name in filtered_names:
+            print(f"  ❌ {name}")
+
+    print(f"\n✅ Found {len(character_names)} valid characters:")
     for name in character_names:
-        print(f"  - {name}")
+        print(f"  ✓ {name}")
+    # ===== END FILTER SECTION =====
     
     # LLM extraction
     print("\n🤖 Calling LLM for detailed character extraction...")
     llm = ChatOpenAI(**get_llm_config("phase4", "character_extraction"))
     structured_llm = llm.with_structured_output(CharacterExtractionOutput, method="function_calling")
     
-    # Limit screenplay text for context (first 10K chars)
-    screenplay_sample = screenplay_text[:10000]
+    # Use full screenplay (no truncation - modern LLMs handle 100K+ tokens)
+    screenplay_sample = screenplay_text
     
     extraction_prompt = f"""
-Analyze this screenplay and extract ALL unique characters with complete details.
+    Analyze this screenplay and extract ALL unique characters with complete details.
 
-SCREENPLAY (sample):
-{screenplay_sample}
+    SCREENPLAY (sample):
+    {screenplay_sample}
 
-CHARACTER NAMES FOUND IN DIALOGUE: {', '.join(character_names)}
+    CHARACTER NAMES FOUND IN DIALOGUE: {', '.join(character_names)}
+
+    IMPORTANT: Only analyze these validated character names: {character_names}
+    Do NOT include screenplay markers like CUT TO, END SCENE, FADE IN, etc.
 
 For each character, extract:
 
@@ -130,6 +150,11 @@ Return a structured list of all characters.
     characters_database = []
     
     for idx, char in enumerate(result.characters, 1):
+        from ..utils import is_valid_character_name
+    
+        if not is_valid_character_name(char.name):
+            print(f"⚠️  Skipping invalid character from LLM: {char.name}")
+            continue
         character_id = f"char_{idx:03d}"
         
         print(f"\nProcessing {char.name} (#{idx})...")

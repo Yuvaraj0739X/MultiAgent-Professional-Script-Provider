@@ -68,14 +68,75 @@ def validate_fountain_syntax(screenplay: str) -> Dict:
                             warnings.append(f"Line {i+1}: Character name should be ALL CAPS: '{line_stripped}'")
                     break
     
+    # ===== FIXED: Proper dialogue detection =====
     has_dialogue = False
-    for line in lines:
-        if line.strip() and line.strip()[0].islower():
-            has_dialogue = True
+    
+    # Blacklist of non-character all-caps lines
+    non_character_caps = {
+        "FADE IN:", "FADE IN", "FADE OUT:", "FADE OUT", "FADE OUT.",
+        "CUT TO:", "CUT TO", "DISSOLVE TO:", "DISSOLVE TO",
+        "THE END", "CONTINUOUS", "CONT'D", "CONTINUED",
+        "MONTAGE", "FLASHBACK", "FLASH FORWARD",
+        "SMASH CUT TO:", "MATCH CUT TO:",
+        "OPENING CREDITS", "END CREDITS", "CREDITS",
+        "TITLE CARD", "SUPER", "INSERT"
+    }
+    
+    for i in range(len(lines)):
+        line = lines[i].strip()
+        
+        # Skip empty lines
+        if not line:
+            continue
+        
+        # Skip scene headings
+        if line.startswith(("INT.", "EXT.", "EST.", "INT/EXT")):
+            continue
+        
+        # Check if this could be a character name (ALL CAPS, length > 1)
+        if not (line.isupper() and len(line) > 1):
+            continue
+        
+        # Skip known markers
+        if line in non_character_caps:
+            continue
+        
+        # This looks like a character name - check next lines for dialogue
+        for j in range(i + 1, len(lines)):
+            next_line = lines[j].strip()
+            
+            # Skip empty lines
+            if not next_line:
+                continue
+            
+            # Check if this is dialogue
+            if len(next_line) > 0:
+                first_char = next_line[0]
+                
+                # Parenthetical (e.g., "(softly)") indicates dialogue context
+                if first_char == '(':
+                    has_dialogue = True
+                    break
+                
+                # Check for actual dialogue (not all caps, not a scene heading)
+                if first_char.isalpha() or first_char in '"\'':
+                    # It's dialogue if it's NOT all uppercase
+                    if not next_line.isupper():
+                        # And NOT a scene heading
+                        if not next_line.startswith(("INT.", "EXT.")):
+                            has_dialogue = True
+                            break
+                
+                # If we hit another all-caps line or scene heading, 
+                # stop looking (this character has no dialogue)
+                break
+        
+        if has_dialogue:
             break
     
     if not has_dialogue:
         warnings.append("No dialogue detected - screenplay may be incomplete")
+    # ===== END FIX =====
     
     total_checks += 1
     if len(screenplay) >= 1000:

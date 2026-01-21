@@ -98,7 +98,7 @@ LOCATION APPEARS IN THESE SCENES:
 {scene_identifiers}
 
 ACTION DESCRIPTIONS FROM ALL SCENES:
-{location_descriptions[:2000]}  # First 2000 chars
+{location_descriptions}
 
 Extract ONLY PERMANENT fixtures that would be in an EMPTY room/location:
 

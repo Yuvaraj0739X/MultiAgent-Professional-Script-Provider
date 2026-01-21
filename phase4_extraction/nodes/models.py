@@ -232,7 +232,7 @@ class StoryboardFrame(BaseModel):
     aspect_ratio: str = Field(default="16:9", description="MUST be 16:9 for video production")
     resolution: str = Field(default="1920x1080", description="Recommended resolution for image generation")
     
-    description: str = Field(default="", description="Detailed description of what's in this frame")
+    description: str
     focus_elements: List[str] = Field(default_factory=list)
     action_beat_number: int
     

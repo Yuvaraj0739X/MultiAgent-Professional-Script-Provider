@@ -1,0 +1,87 @@
+Analyzing screenplay (35263 characters)...
+Processing 15 scenes...
+✓ Parsed screenplay: 27 scenes found
+✓ Found 11 dialogue entries
+
+✅ Found 11 valid characters:
+  ✓ MARSHAL NEY
+  ✓ MESSENGER
+  ✓ NAPIER
+  ✓ NAPOLEON
+  ✓ NEY
+  ✓ OFFICER
+  ✓ PRIVATE
+  ✓ RECRUIT
+  ✓ SOLDIER
+  ✓ WELLINGTON
+  ✓ YOUNG OFFICER
+
+🤖 Calling LLM for detailed character extraction...
+
+❌ ERROR in Phase 4 workflow: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+
+❌ Error running Phase 4: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Traceback (most recent call last):
+  File "E:\Yuvaraj\Github\MultiAgent-Professional-Script-Provider\test_phase4_standalone.py", line 126, in run_phase4_test
+    phase4_result = run_phase4(
+        screenplay_text=phase3_data['screenplay_text'],
+    ...<9 lines>...
+        use_checkpointer=use_checkpointer
+    )
+  File "E:\Yuvaraj\Github\MultiAgent-Professional-Script-Provider\phase4_extraction\graph.py", line 140, in run_phase4
+    final_state = graph.invoke(initial_state, config=config)
+  File "E:\Yuvaraj\Github\MultiAgent-Professional-Script-Provider\.venv\Lib\site-packages\langgraph\pregel\__init__.py", line 2719, in invoke
+    for chunk in self.stream(
+                 ~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<7 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ):
+    ^
+  File "E:\Yuvaraj\Github\MultiAgent-Professional-Script-Provider\.venv\Lib\site-packages\langgraph\pregel\__init__.py", line 2436, in stream
+    for _ in runner.tick(
+             ~~~~~~~~~~~^
+        [t for t in loop.tasks.values() if not t.writes],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule_task=loop.accept_push,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "E:\Yuvaraj\Github\MultiAgent-Professional-Script-Provider\.venv\Lib\site-packages\langgraph\pregel\runner.py", line 162, in tick
+    run_with_retry(
+    ~~~~~~~~~~~~~~^
+        t,
+        ^^
+    ...<10 lines>...
+        },
+        ^^
+    )
+    ^
+  File "E:\Yuvaraj\Github\MultiAgent-Professional-Script-Provider\.venv\Lib\site-packages\langgraph\pregel\retry.py", line 40, in run_with_retry      
+    return task.proc.invoke(task.input, config)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "E:\Yuvaraj\Github\MultiAgent-Professional-Script-Provider\.venv\Lib\site-packages\langgraph\utils\runnable.py", line 623, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+  File "E:\Yuvaraj\Github\MultiAgent-Professional-Script-Provider\.venv\Lib\site-packages\langgraph\utils\runnable.py", line 377, in invoke
+    ret = self.func(*args, **kwargs)
+  File "E:\Yuvaraj\Github\MultiAgent-Professional-Script-Provider\phase4_extraction\nodes\character_extraction.py", line 91, in character_extraction_node
+    llm = ChatOpenAI(**get_llm_config("phase4", "character_extraction"))
+  File "E:\Yuvaraj\Github\MultiAgent-Professional-Script-Provider\.venv\Lib\site-packages\langchain_core\load\serializable.py", line 130, in __init__ 
+    super().__init__(*args, **kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Yuvaraj\Github\MultiAgent-Professional-Script-Provider\.venv\Lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+  File "E:\Yuvaraj\Github\MultiAgent-Professional-Script-Provider\.venv\Lib\site-packages\langchain_openai\chat_models\base.py", line 690, in validate_environment
+    self.root_client = openai.OpenAI(**client_params, **sync_specific)  # type: ignore[arg-type]
+                       ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Yuvaraj\Github\MultiAgent-Professional-Script-Provider\.venv\Lib\site-packages\openai\_client.py", line 126, in __init__
+    raise OpenAIError(
+        "The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable"
+    )
+openai.OpenAIError: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+During task with name 'extract_characters' and id '8167a40c-0947-2d56-f9eb-bdda9d6376e1'
+
+❌ Test failed!

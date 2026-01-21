@@ -19,16 +19,16 @@ MODELS = {
         "timeline_build": "gpt-4o-mini",
     },
     "phase3": {
-        "scene_breakdown": "gpt-4o",              # Premium for creative structure
-        "screenplay_generation": "gpt-4o",        # Premium for creative writing
+        "scene_breakdown": "gpt-4o-mini",              # Premium for creative structure
+        "screenplay_generation": "gpt-4o-mini",        # Premium for creative writing
         "validation": "gpt-4o-mini",              # Basic for validation
     },
     "phase4": {
-        "character_extraction": "gpt-4o",         # Premium for detailed extraction
-        "voice_extraction": "gpt-4o",             # Premium for voice analysis
-        "environment_extraction": "gpt-4o",       # Premium for detailed extraction
-        "scene_analysis": "gpt-4o",               # Premium for complex analysis
-        "storyboard_planning": "gpt-4o",          # Premium for creative planning
+        "character_extraction": "gpt-4o-mini",         # Premium for detailed extraction
+        "voice_extraction": "gpt-4o-mini",             # Premium for voice analysis
+        "environment_extraction": "gpt-4o-mini",       # Premium for detailed extraction
+        "scene_analysis": "gpt-4o-mini",               # Premium for complex analysis
+        "storyboard_planning": "gpt-4o-mini",          # Premium for creative planning
     },
 }
 
